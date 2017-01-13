@@ -1,0 +1,50 @@
+<% include header %>
+<div class="col-md-12">
+	<table class="table table-bordered display" id="dataTables-example" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>姓名</th>
+				<th>年龄</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contents in content">
+				<td>{{contents.id}}</td>
+				<td>{{contents.name}}</td>
+				<td>{{contents.age}}</td>
+			</tr>
+		</tbody>
+
+	</table>
+</div>
+
+<script type="text/javascript">
+	$('#dataTables-example').DataTable({
+	        	"fixedHeader": true ,
+	           "bPaginate": true, //翻页功能
+	           "bFilter": false, //列筛序功能
+	           "searching": true,//本地搜索
+	           "ordering": false, //排序功能
+	           "Info": false,//页脚信息
+	           "autoWidth": true,//自动宽度
+	           "oLanguage": {  
+	        	   "sLengthMenu": "每页显示 _MENU_条",  
+	        	   "sZeroRecords": "没有数据",  
+	        	   "sProcessing": "&lt;img src=’./loading.gif’ /&gt;",  
+	        	   "sInfo": "当前第 _START_ - _END_ 条/共计 _TOTAL_ 条",  
+	        	   "sInfoEmpty": "没有记录",  
+	        	   "sInfoFiltered": "(从 _MAX_ 条记录中过滤)",  
+	        	   "sSearch": "<a ng-click='ajaxData()' class='btn btn-primary btn-sm' id='data-loading'>加载数据</a> 搜索：",  
+	        	   "oPaginate": {  
+	        	   "sFirst": "首页",  
+	        	   "sPrevious": "上一页",  
+	        	   "sNext": "下一页",  
+	        	   "sLast": "尾页"  
+	        	   }  
+	        	} 
+	        });
+
+</script>
+
+<% include footer %>
